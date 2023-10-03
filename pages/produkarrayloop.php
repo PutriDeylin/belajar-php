@@ -1,3 +1,66 @@
+<?php
+    // Array Loop Data Produk
+    $produkrow1 = [
+        [
+            'gambar' => '../dist/img/1.jpg',
+            'nama'   => 'Sepatu Kets Wanita Casual',
+            'ukuran' => '36, 37, 38, 39, 40',
+            'harga'  => 'Rp200.000'
+        ],
+
+        [
+            'gambar' => '../dist/img/2.jpg',
+            'nama'   => 'Sepatu Kets Wanita Casual',
+            'ukuran' => '36, 37, 38, 39, 40',
+            'harga'  => 'Rp250.000'
+        ],
+        [
+            'gambar' => '../dist/img/3.jpg',
+            'nama'   => 'Sepatu Kets Wanita Casual',
+            'ukuran' => '36, 37, 38, 39, 40',
+            'harga'  => 'Rp300.000'
+        ],
+
+        [
+            'gambar' => '../dist/img/4.jpg',
+            'nama'   => 'Sepatu Kets Wanita Casual',
+            'ukuran' => '36, 37, 38, 39, 40',
+            'harga'  => 'Rp300.000'
+        ],
+        
+    ];
+
+    $produkrow2 = [
+        [
+            'gambar' => '../dist/img/5.jpg',
+            'nama'   => 'Sepatu Kets Wanita Casual',
+            'ukuran' => '36, 37, 38, 39, 40',
+            'harga'  => 'Rp500.000'
+        ],
+
+        [
+            'gambar' => '../dist/img/6.jpg',
+            'nama'   => 'Sepatu Kets Wanita Casual',
+            'ukuran' => '36, 37, 38, 39, 40',
+            'harga'  => 'Rp150.000'
+        ],
+        [
+            'gambar' => '../dist/img/7.jpg',
+            'nama'   => 'Sepatu Kets Wanita Casual',
+            'ukuran' => '36, 37, 38, 39, 40',
+            'harga'  => 'Rp170.000'
+        ],
+
+        [
+            'gambar' => '../dist/img/8.jpg',
+            'nama'   => 'Sepatu Kets Wanita Casual',
+            'ukuran' => '36, 37, 38, 39, 40',
+            'harga'  => 'Rp180.000'
+        ],
+        
+    ];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,6 +134,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
+                         <!-- Dashboard -->
                         <li class="nav-item">
                             <a href="../dashboard.php" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -79,12 +143,23 @@
                                 </p>
                             </a>
                         </li>
+                        <!-- /.Dashboard -->
+                        <!-- Product Variabel -->
+                        <li class="nav-item">
+                        <a href="produkvariabel.php" class="nav-link active">
+                            <i class="nav-icon 	fas fa-shopping-cart"></i>
+                            <p>
+                                Product Variabel
+                            </p>
+                        </a>
+                        </li>
+                        <!-- /.Product Variabel -->
                         <!-- Product -->
                         <li class="nav-item">
-                            <a href="listingproduk.php" class="nav-link active">
+                            <a href="produkarrayloop.php" class="nav-link active">
                                 <i class="nav-icon 	fas fa-shopping-cart"></i>
                                 <p>
-                                    Product
+                                    Product Array Loop
                                 </p>
                             </a>
                         </li>
@@ -99,7 +174,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Product</h1>
+                            <h1>Product Tugas 14</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -118,56 +193,46 @@
                         <div class="col-12">
                             <div class="card card-secondary">
                                 <div class="card-header">
-                                    <h4 class="card-title">Listing Produk</h4>
+                                    <h4 class="card-title">Produk Array Loop</h4>
                                 </div>
                                 <!-- product -->
                                 <div class="card-body">
                                     <div class="card-deck">
-                                    <?php
-                                        // Memasukkan data produk dari file data_produk.php
-                                        include 'data_produk.php';
-
-                                        // Loop untuk menampilkan produk
-                                        foreach ($produkrow1 as $data) {
-                                        ?>
-                                        <div class="card">
-                                            <img src="<?php echo $data['img']; ?>" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><?php echo $data['nama']; ?></h5>
-                                                <p class="card-text"><?php echo $data['deskripsi']; ?></p>
-                                                <p><?php echo $data['harga']; ?></p>
-                                                <a href="#" class="btn btn-secondary">Beli</a>
+                                        <?php
+                                            // Loop untuk menampilkan produk
+                                            foreach ($produkrow1 as $value) {
+                                                echo '<div class="card">';
+                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
+                                                echo '<div class="card-body">';
+                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
+                                                echo '<p class="card-text">Ukuran '. $value['ukuran'].'</p>';
+                                                echo '<p>'.$value['harga'].'</p>';
+                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
+                                                echo '</div>';
+                                                echo '</div>';
+                                            }
+                                            ?>
                                             </div>
                                         </div>
-                                        <?php
-                                        }
-                                        ?>
-                                        </div>
-                                    </div>
 
                                 <div class="card-body">
                                     <div class="card-deck">
-                                    <?php
-                                        // Memasukkan data produk dari file data_produk.php
-                                        include 'data_produk.php';
-
-                                        // Loop untuk menampilkan produk
-                                        foreach ($produkrow2 as $data) {
-                                        ?>
-                                        <div class="card">
-                                            <img src="<?php echo $data['img']; ?>" class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title"><?php echo $data['nama']; ?></h5>
-                                                <p class="card-text"><?php echo $data['deskripsi']; ?></p>
-                                                <p><?php echo $data['harga']; ?></p>
-                                                <a href="#" class="btn btn-secondary">Beli</a>
+                                        <?php
+                                            // Loop untuk menampilkan produk
+                                            foreach ($produkrow2 as $value) {
+                                                echo '<div class="card">';
+                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
+                                                echo '<div class="card-body">';
+                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
+                                                echo '<p class="card-text">Ukuran '.$value['ukuran'].'</p>';
+                                                echo '<p>'.$value['harga'].'</p>';
+                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
+                                                echo '</div>';
+                                                echo '</div>';
+                                            }
+                                            ?>
                                             </div>
                                         </div>
-                                        <?php
-                                        }
-                                        ?>
-                                        </div>
-                                    </div>
                                 <!-- akhir Product -->
                             </div>
                         </div>

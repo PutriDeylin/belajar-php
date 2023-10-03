@@ -85,6 +85,7 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Dashboard -->
             <li class="nav-item">
               <a href="dashboard.php" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -93,16 +94,27 @@
                 </p>
               </a>
             </li>
-            <!-- Product -->
+            <!-- /.Dashboard -->
+            <!-- Product Variabel -->
             <li class="nav-item">
-              <a href="pages/listingproduk.php" class="nav-link active">
+              <a href="pages/produkvariabel.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-shopping-cart"></i>
                 <p>
-                  Product
+                  Product Variabel
                 </p>
               </a>
             </li>
-            <!-- /.Product -->
+            <!-- /.Product Variabel -->
+             <!-- Product Array -->
+             <li class="nav-item">
+              <a href="pages/produkarrayloop.php" class="nav-link active">
+                <i class="nav-icon 	fas fa-shopping-cart"></i>
+                <p>
+                  Product Array Loop
+                </p>
+              </a>
+            </li>
+            <!-- /.Product Array -->
             <!-- /.sidebar-menu -->
       </div>
     </aside>
