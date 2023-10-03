@@ -128,14 +128,14 @@
                                         include 'data_produk.php';
 
                                         // Loop untuk menampilkan produk
-                                        foreach ($produkrow1 as $item) {
+                                        foreach ($produkrow1 as $data) {
                                         ?>
                                         <div class="card">
-                                            <img src="<?php echo $item['img']; ?>" class="card-img-top" alt="...">
+                                            <img src="<?php echo $data['img']; ?>" class="card-img-top" alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $item['title']; ?></h5>
-                                                <p class="card-text"><?php echo $item['description']; ?></p>
-                                                <p><?php echo $item['price']; ?></p>
+                                                <h5 class="card-title"><?php echo $data['nama']; ?></h5>
+                                                <p class="card-text"><?php echo $data['deskripsi']; ?></p>
+                                                <p><?php echo $data['harga']; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>
@@ -152,14 +152,14 @@
                                         include 'data_produk.php';
 
                                         // Loop untuk menampilkan produk
-                                        foreach ($produkrow2 as $item) {
+                                        foreach ($produkrow2 as $data) {
                                         ?>
                                         <div class="card">
-                                            <img src="<?php echo $item['img']; ?>" class="card-img-top" alt="...">
+                                            <img src="<?php echo $data['img']; ?>" class="card-img-top" alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $item['title']; ?></h5>
-                                                <p class="card-text"><?php echo $item['description']; ?></p>
-                                                <p><?php echo $item['price']; ?></p>
+                                                <h5 class="card-title"><?php echo $data['nama']; ?></h5>
+                                                <p class="card-text"><?php echo $data['deskripsi']; ?></p>
+                                                <p><?php echo $data['harga']; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>
