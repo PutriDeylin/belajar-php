@@ -1,64 +1,9 @@
 <?php
     // Variabel Data Produk
-    $produkrow1 = [
-        [
-            'gambar' => '../dist/img/1.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp200.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/2.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp250.000'
-        ],
-        [
-            'gambar' => '../dist/img/3.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/4.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-        
-    ];
-
-    $produkrow2 = [
-        [
-            'gambar' => '../dist/img/5.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp500.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/6.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp150.000'
-        ],
-        [
-            'gambar' => '../dist/img/7.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp170.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/8.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp180.000'
-        ],
-        
-    ];
+    $gambar = array('../dist/img/1.jpg',"../dist/img/2.jpg","../dist/img/3.jpg","../dist/img/4.jpg","../dist/img/5.jpg","../dist/img/6.jpg","../dist/img/7.jpg","../dist/img/8.jpg");
+    $nama = array("Sepatu Kets Wanita Casual","Sepatu Kets Wanita Casual","Sepatu Kets Wanita Casual","Sepatu Kets Wanita Casual","Sepatu Kets Wanita Casual","Sepatu Kets Wanita Casual","Sepatu Kets Wanita Casual","Sepatu Kets Wanita Casual");
+    $ukuran = array("36, 37, 38, 39, 40","36, 37, 38, 39, 40","36, 37, 38, 39, 40","36, 37, 38, 39, 40","36, 37, 38, 39, 40","36, 37, 38, 39, 40","36, 37, 38, 39, 40","36, 37, 38, 39, 40");
+    $harga = array("Rp200.000","Rp250.000","Rp300.000","Rp300.000","Rp500.000","Rp150.000","Rp170.000","Rp180.000");
 ?>
                             
 <!DOCTYPE html>
@@ -146,7 +91,7 @@
                         <!-- /.Dashboard -->
                         <!-- Product Variabel -->
                         <li class="nav-item">
-                        <a href="produkvariabel.php" class="nav-link active">
+                        <a href="produk-variabel.php" class="nav-link active">
                             <i class="nav-icon 	fas fa-shopping-cart"></i>
                             <p>
                                 Product Variabel
@@ -156,10 +101,10 @@
                         <!-- /.Product Variabel -->
                         <!-- Product -->
                         <li class="nav-item">
-                            <a href="produkarrayloop.php" class="nav-link active">
+                            <a href="produk-loop.php" class="nav-link active">
                                 <i class="nav-icon 	fas fa-shopping-cart"></i>
                                 <p>
-                                    Product Array Loop
+                                    Product Loop
                                 </p>
                             </a>
                         </li>
@@ -199,42 +144,42 @@
                                 <div class="card-body">
                                     <div class="card-deck">
                                         <div class="card">
-                                            <img src="<?php echo $produkrow1[0]['gambar']; ?>" class="card-img-top"
+                                            <img src="<?php echo $gambar[0]; ?>" class="card-img-top"
                                                 alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $produkrow1[0]['nama']; ?></h5>
-                                                <p class="card-text">Ukuran <?php echo $produkrow1[0]['ukuran']; ?></p>
-                                                <p><?php echo $produkrow1[0]['harga']; ?></p>
+                                                <h5 class="card-title"><?php echo $nama[0]; ?></h5>
+                                                <p class="card-text">Ukuran <?php echo $ukuran[0]; ?></p>
+                                                <p><?php echo $harga[0]; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img src="<?php echo $produkrow1[1]['gambar']; ?>" class="card-img-top"
+                                            <img src="<?php echo $gambar[1]; ?>" class="card-img-top"
                                                 alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $produkrow1[1]['nama']; ?></h5>
-                                                <p class="card-text">Ukuran <?php echo $produkrow1[1]['ukuran']; ?></p>
-                                                <p><?php echo $produkrow1[1]['harga']; ?></p>
+                                                <h5 class="card-title"><?php echo $nama[1]; ?></h5>
+                                                <p class="card-text">Ukuran <?php echo $ukuran[1]; ?></p>
+                                                <p><?php echo $harga[1]; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img src="<?php echo $produkrow1[2]['gambar']; ?>" class="card-img-top"
+                                            <img src="<?php echo $gambar[2]; ?>" class="card-img-top"
                                                 alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $produkrow1[2]['nama']; ?></h5>
-                                                <p class="card-text">Ukuran <?php echo $produkrow1[2]['ukuran']; ?></p>
-                                                <p><?php echo $produkrow1[2]['harga']; ?></p>
+                                                <h5 class="card-title"><?php echo $nama[2]; ?></h5>
+                                                <p class="card-text">Ukuran <?php echo $ukuran[2]; ?></p>
+                                                <p><?php echo $harga[2]; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img src="<?php echo $produkrow1[3]['gambar']; ?>" class="card-img-top"
+                                            <img src="<?php echo $gambar[3]; ?>" class="card-img-top"
                                                 alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $produkrow1[3]['nama']; ?></h5>
-                                                <p class="card-text">Ukuran <?php echo $produkrow1[3]['ukuran']; ?></p>
-                                                <p><?php echo $produkrow1[3]['harga']; ?></p>
+                                                <h5 class="card-title"><?php echo $nama[3]; ?></h5>
+                                                <p class="card-text">Ukuran <?php echo $ukuran[3]; ?></p>
+                                                <p><?php echo $harga[3]; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>
@@ -244,42 +189,42 @@
                                 <div class="card-body">
                                     <div class="card-deck">
                                         <div class="card">
-                                            <img src="<?php echo $produkrow2[0]['gambar']; ?>" class="card-img-top"
+                                            <img src="<?php echo $gambar[4]; ?>" class="card-img-top"
                                                 alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $produkrow2[0]['nama']; ?></h5>
-                                                <p class="card-text">Ukuran <?php echo $produkrow2[0]['ukuran']; ?></p>
-                                                <p><?php echo $produkrow2[0]['harga']; ?></p>
+                                                <h5 class="card-title"><?php echo $nama[4]; ?></h5>
+                                                <p class="card-text">Ukuran <?php echo $ukuran[4]; ?></p>
+                                                <p><?php echo $harga[4]; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img src="<?php echo $produkrow2[1]['gambar']; ?>" class="card-img-top"
+                                            <img src="<?php echo $gambar[5]; ?>" class="card-img-top"
                                                 alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $produkrow2[1]['nama']; ?></h5>
-                                                <p class="card-text">Ukuran <?php echo $produkrow2[1]['ukuran']; ?></p>
-                                                <p><?php echo $produkrow2[1]['harga']; ?></p>
+                                                <h5 class="card-title"><?php echo $nama[5]; ?></h5>
+                                                <p class="card-text">Ukuran <?php echo $ukuran[5]; ?></p>
+                                                <p><?php echo $harga[5]; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img src="<?php echo $produkrow2[2]['gambar']; ?>" class="card-img-top"
+                                            <img src="<?php echo $gambar[6]; ?>" class="card-img-top"
                                                 alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $produkrow2[2]['nama']; ?></h5>
-                                                <p class="card-text">Ukuran <?php echo $produkrow2[2]['ukuran']; ?></p>
-                                                <p><?php echo $produkrow2[2]['harga']; ?></p>
+                                                <h5 class="card-title"><?php echo $nama[6]; ?></h5>
+                                                <p class="card-text">Ukuran <?php echo $ukuran[6]; ?></p>
+                                                <p><?php echo $harga[6]; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <img src="<?php echo $produkrow2[3]['gambar']; ?>" class="card-img-top"
+                                            <img src="<?php echo $gambar[7]; ?>" class="card-img-top"
                                                 alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title"><?php echo $produkrow2[3]['nama']; ?></h5>
-                                                <p class="card-text">Ukuran <?php echo $produkrow2[3]['ukuran']; ?></p>
-                                                <p><?php echo $produkrow2[3]['harga']; ?></p>
+                                                <h5 class="card-title"><?php echo $nama[7]; ?></h5>
+                                                <p class="card-text">Ukuran <?php echo $ukuran[7]; ?></p>
+                                                <p><?php echo $harga[7]; ?></p>
                                                 <a href="#" class="btn btn-secondary">Beli</a>
                                             </div>
                                         </div>

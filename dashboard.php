@@ -97,7 +97,7 @@
             <!-- /.Dashboard -->
             <!-- Product Variabel -->
             <li class="nav-item">
-              <a href="pages/produkvariabel.php" class="nav-link active">
+              <a href="pages/produk-variabel.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-shopping-cart"></i>
                 <p>
                   Product Variabel
@@ -107,10 +107,10 @@
             <!-- /.Product Variabel -->
              <!-- Product Array -->
              <li class="nav-item">
-              <a href="pages/produkarrayloop.php" class="nav-link active">
+              <a href="pages/produk-loop.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-shopping-cart"></i>
                 <p>
-                  Product Array Loop
+                  Product Loop
                 </p>
               </a>
             </li>

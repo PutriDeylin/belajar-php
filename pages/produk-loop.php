@@ -1,5 +1,5 @@
 <?php
-    // Array Loop Data Produk
+    // Variabel Data Produk Loop
     $produkrow1 = [
         [
             'gambar' => '../dist/img/1.jpg',
@@ -146,7 +146,7 @@
                         <!-- /.Dashboard -->
                         <!-- Product Variabel -->
                         <li class="nav-item">
-                        <a href="produkvariabel.php" class="nav-link active">
+                        <a href="produk-variabel.php" class="nav-link active">
                             <i class="nav-icon 	fas fa-shopping-cart"></i>
                             <p>
                                 Product Variabel
@@ -156,10 +156,10 @@
                         <!-- /.Product Variabel -->
                         <!-- Product -->
                         <li class="nav-item">
-                            <a href="produkarrayloop.php" class="nav-link active">
+                            <a href="produk-loop.php" class="nav-link active">
                                 <i class="nav-icon 	fas fa-shopping-cart"></i>
                                 <p>
-                                    Product Array Loop
+                                    Product Loop
                                 </p>
                             </a>
                         </li>
@@ -193,7 +193,7 @@
                         <div class="col-12">
                             <div class="card card-secondary">
                                 <div class="card-header">
-                                    <h4 class="card-title">Produk Array Loop</h4>
+                                    <h4 class="card-title">Produk Loop</h4>
                                 </div>
                                 <!-- product -->
                                 <div class="card-body">
