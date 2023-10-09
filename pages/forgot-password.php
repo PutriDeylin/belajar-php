@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/loginredirect.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -42,7 +44,7 @@
       </form>
 
       <p class="mt-3 mb-1">
-        <a href="login.php">Login</a>
+        <a href="login-redirect.php">Login</a>
       </p>
       <p class="mb-0">
         <a href="register.php" class="text-center">Register a new membership</a>

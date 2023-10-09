@@ -1,0 +1,21 @@
+.card-body {
+    background-color: rgb(222, 239, 255);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.input-group {
+    background-color: rgb(168, 205, 242);
+    border-radius: 5px;
+}
+
+.text {
+    background-color: black;
+}
+
+.form-control {
+    background-color: white;
+}
+
+.cek {
+    background-color: black;
+}

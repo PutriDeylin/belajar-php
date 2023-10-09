@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/loginredirect.css">
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
@@ -24,7 +26,7 @@
     <div class="card-body register-card-body">
       <p class="login-box-msg">Register a new membership</p>
 
-      <form action="login.php" method="post">
+      <form action="login-redirect.php" method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Full name">
           <div class="input-group-append">
@@ -88,7 +90,7 @@
         </a>
       </div>
 
-      <a href="login.php" class="text-center">I already have a membership</a>
+      <a href="login-redirect.php" class="text-center">I already have a membership</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

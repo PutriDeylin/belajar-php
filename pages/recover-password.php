@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/loginredirect.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -24,7 +26,7 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">You are only one step a way from your new password, recover your password now.</p>
 
-      <form action="login.php" method="post">
+      <form action="login-redirect.php" method="post">
         <div class="input-group mb-3">
           <input type="password" class="form-control" placeholder="Password">
           <div class="input-group-append">
@@ -50,7 +52,7 @@
       </form>
 
       <p class="mt-3 mb-1">
-        <a href="login.php">Login</a>
+        <a href="login-redirect.php">Login</a>
       </p>
     </div>
     <!-- /.login-card-body -->

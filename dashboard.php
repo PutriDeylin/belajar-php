@@ -115,6 +115,16 @@
               </a>
             </li>
             <!-- /.Product Array -->
+             <!-- Logout -->
+             <li class="nav-item">
+              <a href="pages/login-redirect.php" class="nav-link active">
+                <i class="nav-icon 	fas fa-sign-out-alt"></i>
+                <p>
+                  Logout
+                </p>
+              </a>
+            </li>
+            <!-- /.Logout -->
             <!-- /.sidebar-menu -->
       </div>
     </aside>

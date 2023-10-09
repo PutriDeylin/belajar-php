@@ -1,3 +1,39 @@
+<?php
+session_start();
+
+// Username & password 
+$username = "adminputri";
+$password = "7202331";
+ 
+    // Periksa apakah form login telah dikirim
+    if (isset($_POST["username"]) && isset($_POST["password"])) {  
+
+    // Menangkap nilai yang dikirimkan melalui form
+    $inputUser = $_POST["username"];
+    $inputPass = $_POST["password"];
+
+    // Periksa apakah inputan sesuai dengan username dan password 
+    if ($inputUser == $username && $inputPass == $password) {
+        // Autentikasi berhasil
+        $_SESSION["username"] = $inputUser;
+
+        // Redirect ke halaman dashboard
+        header("Location: ../dashboard.php");
+        exit();
+    } else {
+        /* Autentikasi gagal, jika ingin tetap dihalaman login
+        header("Location: login-redirect.php");
+        exit(); */
+
+        /* Autentikasi gagal, tampilkan pesan error
+        $errorMessage = "Incorrect username or password!"; */
+
+        // Autentikasi gagal, tampilkan pesan error
+        $errorMessage = "Incorrect username or password!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,16 +58,16 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../dashboard.html"><b>Putri</b>Shop</a>
+            <a href=""><b>Putri</b>Shop</a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in with your username and password</p>
 
-                <form action="../dashboard.php" method="post">
+                <form method="post" action="">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Username">
+                        <input type="text" class="form-control" placeholder="Username" name="username">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -39,7 +75,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password" name="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -57,12 +93,18 @@
                         </div>
                         <!-- /.col -->
                         <div class="col-4">
-                        <a href="../dashboard.php" class="btn btn-primary btn-block">Login</a>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
                         </div>
                         <!-- /.col -->
                     </div>
-                </form>
-
+                </form><br>
+                <div class="text-center mx-auto">
+                <?php
+                if (isset($errorMessage)) {
+                    echo '<p class="text-danger">'.$errorMessage.'</p>';
+                }
+                ?>
+                </div>
                 <div class="social-auth-links text-center mb-3">
                     <p>- OR -</p>
                     <a href="#" class="btn btn-block btn-primary">
@@ -78,10 +120,10 @@
                 <!-- /.social-auth-links -->
 
                 <p class="mb-1">
-                    <a href="#">I forgot my password</a>
+                    <a href="forgot-password.php">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="#" class="text-center">Register a new membership</a>
+                    <a href="register.php" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
