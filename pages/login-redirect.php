@@ -1,39 +1,3 @@
-<?php
-session_start();
-
-// Username & password 
-$username = "adminputri";
-$password = "7202331";
- 
-    // Periksa apakah form login telah dikirim
-    if (isset($_POST["username"]) && isset($_POST["password"])) {  
-
-    // Menangkap nilai yang dikirimkan melalui form
-    $inputUser = $_POST["username"];
-    $inputPass = $_POST["password"];
-
-    // Periksa apakah inputan sesuai dengan username dan password 
-    if ($inputUser == $username && $inputPass == $password) {
-        // Autentikasi berhasil
-        $_SESSION["username"] = $inputUser;
-
-        // Redirect ke halaman dashboard
-        header("Location: ../dashboard.php");
-        exit();
-    } else {
-        /* Autentikasi gagal, jika ingin tetap dihalaman login
-        header("Location: login-redirect.php");
-        exit(); */
-
-        /* Autentikasi gagal, tampilkan pesan error
-        $errorMessage = "Incorrect username or password!"; */
-
-        // Autentikasi gagal, tampilkan pesan error
-        $errorMessage = "Incorrect username or password!";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +29,7 @@ $password = "7202331";
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in with your username and password</p>
 
-                <form method="post" action="">
+                <form method="post" action="proses-login-redirect.php">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Username" name="username">
                         <div class="input-group-append">
@@ -100,8 +64,8 @@ $password = "7202331";
                 </form><br>
                 <div class="text-center mx-auto">
                 <?php
-                if (isset($errorMessage)) {
-                    echo '<p class="text-danger">'.$errorMessage.'</p>';
+                if (isset($_GET['error']) && $_GET['error'] == 1) {
+                    echo '<p style="color: red;">Incorrect username or password!</p>';
                 }
                 ?>
                 </div>
