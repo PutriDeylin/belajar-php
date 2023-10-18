@@ -1,66 +1,33 @@
 <?php
-    // Variabel Data Produk Loop
-    $produkrow1 = [
-        [
-            'gambar' => '../dist/img/1.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp200.000'
-        ],
+// Koneksi ke database
+include 'koneksi-posshop.php';
+if (isset($_GET['id'])) {
+    $product_id = $_GET['id'];
 
-        [
-            'gambar' => '../dist/img/2.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp250.000'
-        ],
-        [
-            'gambar' => '../dist/img/3.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
+    if ($conn->connect_error) {
+        die("Koneksi gagal: " . $conn->connect_error);
+    }
 
-        [
-            'gambar' => '../dist/img/4.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-        
-    ];
+    // Query untuk mengambil data produk berdasarkan 'id'
+    $sql = "SELECT id, product_name, category_id, product_code, description, price, stock FROM products WHERE id = $product_id";
+    $result = $conn->query($sql);
 
-    $produkrow2 = [
-        [
-            'gambar' => '../dist/img/5.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp500.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/6.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp150.000'
-        ],
-        [
-            'gambar' => '../dist/img/7.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp170.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/8.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp180.000'
-        ],
-        
-    ];
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $product_name = $row['product_name'];
+        $category_id = $row['category_id'];
+        $product_code = $row['product_code'];
+        $description = $row['description'];
+        $price = $row['price'];
+        $stock = $row['stock'];
+    } else {
+        echo "Produk tidak ditemukan.";
+    }
+    $conn->close();
+} else {
+    echo "ID Produk tidak ditemukan.";
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -187,82 +154,78 @@
                         <!-- /.sidebar-menu -->
             </div>
         </aside>
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Product Tugas 14</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Product</li>
-                            </ol>
-                        </div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Product Tugas 17</h1>
                     </div>
-                </div><!-- /.container-fluid -->
-            </section>
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-secondary">
-                                <div class="card-header">
-                                    <h4 class="card-title">Produk Loop</h4>
-                                </div>
-                                <!-- product -->
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow1 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '. $value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
-
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow2 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '.$value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
-                                <!-- akhir Product -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Product</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-6">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Edit Data</h3>
                             </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form action="proses-edit.php" method="post">
+                                <div class="card-body">
+                                <div class="form-group">
+                                    <label for="product_id">Product Id:</label>
+                                    <input type="text" id="product_id" name="product_id" class="form-control" value="<?php echo $product_id; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="product_name">Product Name:</label>
+                                    <input type="text" id="product_name" name="product_name" class="form-control" value="<?php echo $product_name; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="category_id">Category ID:</label>
+                                    <input type="text" id="category_id" name="category_id" class="form-control" value="<?php echo $category_id; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="product_code">Product Code:</label>
+                                    <input type="text" id="product_code" name="product_code" class="form-control" value="<?php echo $product_code; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description:</label>
+                                    <input type="text" id="description" name="description" class="form-control" value="<?php echo $description; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Price:</label>
+                                    <input type="text" id="price" name="price" class="form-control" value="<?php echo $price; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stock">Stock:</label>
+                                    <input type="text" id="stock" name="stock" class="form-control" value="<?php echo $stock; ?>" required>
+                                </div>
+                                    <button type="submit" class="btn btn-primary">Update Data</button>
+                                </div>
+                            </form>
                         </div>
+                        <!-- /.card -->
                     </div>
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
+                </div>
+            </div>
+        </section>
+    </div>
+     <!-- /.content-wrapper -->
+     <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
@@ -288,6 +251,9 @@
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- Filterizr-->
     <script src="../plugins/filterizr/jquery.filterizr.min.js"></script>
+</body>
+
+</html>
 </body>
 
 </html>

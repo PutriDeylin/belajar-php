@@ -3,7 +3,7 @@ session_start();
 
 // Username & password 
 $username = "adminputri";
-$password = "7202331";
+$password = "7202311";
  
     // Periksa apakah form login telah dikirim
     if (isset($_POST["username"]) && isset($_POST["password"])) {  

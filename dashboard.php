@@ -105,7 +105,7 @@
               </a>
             </li>
             <!-- /.Product Variabel -->
-             <!-- Product Array -->
+             <!-- Product Loop -->
              <li class="nav-item">
               <a href="pages/produk-loop.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-shopping-cart"></i>
@@ -114,7 +114,17 @@
                 </p>
               </a>
             </li>
-            <!-- /.Product Array -->
+            <!-- /.Product Loop -->
+            <!-- CRUD Product -->
+            <li class="nav-item">
+              <a href="pages/pos-shop.php" class="nav-link active">
+                <i class="nav-icon 	fas fa-shopping-cart"></i>
+                <p>
+                  CRUD Products
+                </p>
+              </a>
+            </li>
+            <!-- /.CRUD Product -->
              <!-- Logout -->
              <li class="nav-item">
               <a href="pages/login-redirect.php" class="nav-link active">

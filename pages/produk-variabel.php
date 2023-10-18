@@ -99,7 +99,7 @@
                         </a>
                         </li>
                         <!-- /.Product Variabel -->
-                        <!-- Product -->
+                        <!-- Product Loop -->
                         <li class="nav-item">
                             <a href="produk-loop.php" class="nav-link active">
                                 <i class="nav-icon 	fas fa-shopping-cart"></i>
@@ -108,7 +108,17 @@
                                 </p>
                             </a>
                         </li>
-                        <!-- /.Product -->
+                        <!-- /.Product Loop -->
+                        <!-- CRUD Product -->
+                        <li class="nav-item">
+                        <a href="pos-shop.php" class="nav-link active">
+                            <i class="nav-icon 	fas fa-shopping-cart"></i>
+                            <p>
+                            CRUD Products
+                            </p>
+                        </a>
+                        </li>
+                        <!-- /.CRUD Product -->
                         <!-- Logout -->
                         <li class="nav-item">
                             <a href="login-redirect.php" class="nav-link active">

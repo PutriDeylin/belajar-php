@@ -1,66 +1,3 @@
-<?php
-    // Variabel Data Produk Loop
-    $produkrow1 = [
-        [
-            'gambar' => '../dist/img/1.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp200.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/2.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp250.000'
-        ],
-        [
-            'gambar' => '../dist/img/3.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/4.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-        
-    ];
-
-    $produkrow2 = [
-        [
-            'gambar' => '../dist/img/5.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp500.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/6.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp150.000'
-        ],
-        [
-            'gambar' => '../dist/img/7.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp170.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/8.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp180.000'
-        ],
-        
-    ];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -194,7 +131,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Product Tugas 14</h1>
+                            <h1>Product Tugas 17</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -205,62 +142,124 @@
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
-
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-secondary">
-                                <div class="card-header">
-                                    <h4 class="card-title">Produk Loop</h4>
-                                </div>
-                                <!-- product -->
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow1 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '. $value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
+          <div class="container-fluid">
+          <div class="row">
+            <!-- create/tambah data -->
+            <div class="col-lg-2 col-3">
+              <!-- small box -->
+              <div class="">
+                <div class="inner">
+                  <!-- <h4>Tambah Data</h4> -->
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="form-tambah-data.php" class="btn btn-block btn-primary">Tambah Data  <i class="nav-icon fas fa-plus mr-2"></i></a>
+                <br>
+              </div>
+            </div>
+            <!-- akhir create/tambah data -->
 
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow2 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '.$value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
-                                <!-- akhir Product -->
-                            </div>
-                        </div>
+            <div class="card-tools">
+                  <div class="input-group input-group-mb">
+                    <input type="text" id="search-input" class="form-control float-right" placeholder="Search">
+                    <div class="input-group-append">
+                      <button type="button" id="search-button" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
                     </div>
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
+                  </div>
+                  </div>
+            <div class="col-12">
+              <div class="card">
+                <!-- <div class="card-header">
+                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                </div> -->
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Category ID</th>
+                        <th>Product Code</th>
+                        <th>Is Active</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Created By</th>
+                        <th>Updated By</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Unit</th>
+                        <th>Discount Amount</th>
+                        <th>Stock</th>
+                        <th>Image</th>
+                        <th>Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                       // Koneksi ke database
+                        include 'koneksi-posshop.php';
+
+                        // Periksa koneksi
+                        if ($conn->connect_error) {
+                            die("Koneksi gagal: " . $conn->connect_error);
+                        }
+
+                        // Query untuk mengambil data
+                        $sql = "SELECT id, product_name, category_id, product_code, is_active, created_at, updated_at, created_by, updated_by, description, price, unit, discount_amount, stock, image FROM products";
+                        $result = $conn->query($sql);
+
+                        // Menampilkan data dalam HTML
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $row["id"] . "</td>";
+                                echo "<td>" . $row["product_name"] . "</td>";
+                                echo "<td>" . $row["category_id"] . "</td>";
+                                echo "<td>" . $row["product_code"] . "</td>";
+                                echo "<td>" . $row["is_active"] . "</td>";
+                                echo "<td>" . $row["created_at"] . "</td>";
+                                echo "<td>" . $row["updated_at"] . "</td>";
+                                echo "<td>" . $row["created_by"] . "</td>";
+                                echo "<td>" . $row["updated_by"] . "</td>";
+                                echo "<td>" . $row["description"] . "</td>";
+                                echo "<td>" . $row["price"] . "</td>";
+                                echo "<td>" . $row["unit"] . "</td>";
+                                echo "<td>" . $row["discount_amount"] . "</td>";
+                                echo "<td>" . $row["stock"] . "</td>";
+                                echo "<td>" . $row["image"] . "</td>";
+                                echo '<td>
+                                        <a href="form-edit-data.php?id=' . $row["id"] . '" class="btn btn-warning">Edit</a>
+                                        <a href="proses-delete.php?id=' . $row["id"] . '" class="btn btn-danger">Hapus</a>
+                                     </td>';
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "Tidak ada data yang ditemukan.";
+                        }
+                        // Tutup koneksi database
+                        $conn->close();
+                        ?>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
         </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
@@ -288,6 +287,47 @@
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- Filterizr-->
     <script src="../plugins/filterizr/jquery.filterizr.min.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Mengambil elemen input dan tombol pencarian
+    const searchInput = document.getElementById("search-input");
+    const searchButton = document.getElementById("search-button");
+
+    // Menambahkan event listener saat tombol pencarian diklik
+    searchButton.addEventListener("click", function () {
+      searchProducts();
+    });
+
+    // Menangani pencarian produk
+    function searchProducts() {
+      const searchText = searchInput.value.toLowerCase();
+      const table = document.getElementById("example2");
+      const rows = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < rows.length; i++) {
+        const row = rows[i];
+        const cells = row.getElementsByTagName("td");
+        let found = false;
+
+        for (let j = 1; j < cells.length - 1; j++) { 
+          const cellText = cells[j].innerText.toLowerCase();
+
+          if (cellText.includes(searchText)) {
+            found = true;
+            break;
+          }
+        }
+
+        if (found) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
+        }
+      }
+    }
+  });
+</script>
 </body>
 
 </html>
