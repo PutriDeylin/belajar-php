@@ -215,10 +215,11 @@
                         $result = $conn->query($sql);
 
                         // Menampilkan data dalam HTML
+                        $i = 1;
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
-                                echo "<td>" . $row["id"] . "</td>";
+                                echo "<td>" . $i . "</td>";
                                 echo "<td>" . $row["product_name"] . "</td>";
                                 echo "<td>" . $row["category_id"] . "</td>";
                                 echo "<td>" . $row["product_code"] . "</td>";
@@ -238,6 +239,7 @@
                                         <a href="proses-delete.php?id=' . $row["id"] . '" class="btn btn-danger">Hapus</a>
                                      </td>';
                                 echo "</tr>";
+                                $i++;
                             }
                         } else {
                             echo "Tidak ada data yang ditemukan.";
