@@ -131,7 +131,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Product Tugas 17</h1>
+                            <h1>Product Tugas 17, 18</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -160,18 +160,20 @@
                 <br>
               </div>
             </div>
-            <!-- akhir create/tambah data -->
-
+            <!-- akhir tambah data -->
+             <!-- Search Data -->
             <div class="card-tools">
+              <form method="post" action="">
                   <div class="input-group input-group-mb">
-                    <input type="text" id="search-input" class="form-control float-right" placeholder="Search">
+                    <input type="text" name="search" id="search-input" class="form-control float-right" placeholder="Search Product">
                     <div class="input-group-append">
-                      <button type="button" id="search-button" class="btn btn-default">
+                      <button type="submit" name="search_button" class="btn btn-default">
                         <i class="fas fa-search"></i>
                       </button>
                     </div>
                   </div>
                   </div>
+              <!-- /.Akhir Search Data -->
             <div class="col-12">
               <div class="card">
                 <!-- <div class="card-header">
@@ -179,7 +181,7 @@
                 </div> -->
                 <!-- /.card-header -->
                 <div class="card-body">
-                  <table id="example2" class="table table-bordered table-hover">
+                  <table id="example2" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>ID</th>
@@ -209,13 +211,34 @@
                         if ($conn->connect_error) {
                             die("Koneksi gagal: " . $conn->connect_error);
                         }
-
+                        
+                        $per_page = 10;
+                        $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+                        $start_from = ($page - 1) * $per_page;
+                        if ($page == 1) {
+                          $start_from = 0;
+                        } else if ($page == 2) {
+                          $start_from = 10;
+                        }
+                        // Search
+                        if (isset($_POST['search_button'])) {
+                          $search = $_POST['search'];
+                
                         // Query untuk mengambil data
-                        $sql = "SELECT id, product_name, category_id, product_code, is_active, created_at, updated_at, created_by, updated_by, description, price, unit, discount_amount, stock, image FROM products";
-                        $result = $conn->query($sql);
+                        $sql = "SELECT id, product_name, category_id, product_code, is_active, created_at, updated_at, created_by, updated_by, description, price, unit, discount_amount, stock, image 
+                        FROM products 
+                        WHERE product_name LIKE '%$search%' OR category_id LIKE '%$search%' OR description LIKE '%$search%'
+                        LIMIT $per_page OFFSET $start_from";
+                        } else {
+                        $sql = "SELECT id, product_name, category_id, product_code, is_active, created_at, updated_at, created_by, updated_by, description, price, unit, discount_amount, stock, image 
+                        FROM products 
+                        LIMIT $per_page OFFSET $start_from";
+                        }
 
+                        $result = $conn->query($sql);
+                        
                         // Menampilkan data dalam HTML
-                        $i = 1;
+                        $i = 1 + $start_from;
                         if ($result->num_rows > 0) {
                             while ($row = $result->fetch_assoc()) {
                                 echo "<tr>";
@@ -242,13 +265,41 @@
                                 $i++;
                             }
                         } else {
-                            echo "Tidak ada data yang ditemukan.";
+                            echo "Data tidak ditemukan.";
                         }
                         // Tutup koneksi database
                         $conn->close();
                         ?>
                     </tbody>
                   </table>
+                  <?php
+                    // Pagination
+                    include 'koneksi-posshop.php';
+
+                    $sql = "SELECT COUNT(id) FROM products";
+                    $result = $conn->query($sql);
+                    $row = $result->fetch_row();
+                    $total_records = $row[0];
+                    $total_pages = ceil($total_records / $per_page);
+
+                    echo "<ul class='pagination'>";
+                    if ($page > 1) {
+                        echo "<li class='page-item'><a class='page-link' href='pos-shop.php?page=" . ($page - 1) . "'>Previous</a></li>";
+                    }
+
+                    for ($i = max(1, $page - 2); $i <= min($page + 2, $total_pages); $i++) {
+                        echo "<li class='page-item ";
+                        if ($i == $page) {
+                            echo "active";
+                        }
+                        echo "'><a class='page-link' href='pos-shop.php?page=" . $i . "'>" . $i . "</a></li>";
+                    }
+
+                    if ($page < $total_pages) {
+                        echo "<li class='page-item'><a class='page-link' href='pos-shop.php?page=" . ($page + 1) . "'>Next</a></li>";
+                    }
+                    echo "</ul>";
+                    ?>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -289,47 +340,6 @@
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- Filterizr-->
     <script src="../plugins/filterizr/jquery.filterizr.min.js"></script>
-
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-    // Mengambil elemen input dan tombol pencarian
-    const searchInput = document.getElementById("search-input");
-    const searchButton = document.getElementById("search-button");
-
-    // Menambahkan event listener saat tombol pencarian diklik
-    searchButton.addEventListener("click", function () {
-      searchProducts();
-    });
-
-    // Menangani pencarian produk
-    function searchProducts() {
-      const searchText = searchInput.value.toLowerCase();
-      const table = document.getElementById("example2");
-      const rows = table.getElementsByTagName("tr");
-
-      for (let i = 1; i < rows.length; i++) {
-        const row = rows[i];
-        const cells = row.getElementsByTagName("td");
-        let found = false;
-
-        for (let j = 1; j < cells.length - 1; j++) { 
-          const cellText = cells[j].innerText.toLowerCase();
-
-          if (cellText.includes(searchText)) {
-            found = true;
-            break;
-          }
-        }
-
-        if (found) {
-          row.style.display = "";
-        } else {
-          row.style.display = "none";
-        }
-      }
-    }
-  });
-</script>
 </body>
 
 </html>

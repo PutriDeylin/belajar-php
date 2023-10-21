@@ -14,6 +14,7 @@ if (isset($_GET['id'])) {
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
+        $product_id = $row['id'];
         $product_name = $row['product_name'];
         $category_id = $row['category_id'];
         $product_code = $row['product_code'];
@@ -184,12 +185,9 @@ if (isset($_GET['id'])) {
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
+                            <div class="card-body">
                             <form action="proses-edit.php" method="post">
-                                <div class="card-body">
-                                <div class="form-group">
-                                    <label for="product_id">Product Id:</label>
-                                    <input type="text" id="product_id" name="product_id" class="form-control" value="<?php echo $product_id; ?>" required>
-                                </div>
+                            <input type="hidden" id="product_id" name="product_id" class="form-control" value="<?php echo $product_id; ?>">
                                 <div class="form-group">
                                     <label for="product_name">Product Name:</label>
                                     <input type="text" id="product_name" name="product_name" class="form-control" value="<?php echo $product_name; ?>" required>
@@ -251,9 +249,6 @@ if (isset($_GET['id'])) {
     <script src="../dist/js/adminlte.min.js"></script>
     <!-- Filterizr-->
     <script src="../plugins/filterizr/jquery.filterizr.min.js"></script>
-</body>
-
-</html>
 </body>
 
 </html>
