@@ -183,6 +183,7 @@
                             <div class="form-group">
                                 <label for="category_id">Category:</label>
                                 <select id="category_id" name="category_id" class="form-control" required>
+                                    <option value="" selected>Select</option>
                                     <option value="1">Sports</option>
                                     <option value="2">Daily</option>
                                     <option value="3">Accessories</option>
