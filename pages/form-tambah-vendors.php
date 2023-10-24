@@ -1,66 +1,3 @@
-<?php
-    // Variabel Data Produk Loop
-    $produkrow1 = [
-        [
-            'gambar' => '../dist/img/1.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp200.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/2.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp250.000'
-        ],
-        [
-            'gambar' => '../dist/img/3.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/4.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-        
-    ];
-
-    $produkrow2 = [
-        [
-            'gambar' => '../dist/img/5.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp500.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/6.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp150.000'
-        ],
-        [
-            'gambar' => '../dist/img/7.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp170.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/8.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp180.000'
-        ],
-        
-    ];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,7 +111,7 @@
                         </a>
                         </li>
                         <!-- /.CRUD Product -->
-                        <!-- Pelanggan -->
+                         <!-- Pelanggan -->
                         <li class="nav-item">
                         <a href="pelanggan.php" class="nav-link active">
                             <i class="nav-icon 	fas fa-users"></i>
@@ -184,9 +121,9 @@
                         </a>
                         </li>
                         <!-- /.Pelanggan -->
-                        <!-- Vendors -->
-                        <li class="nav-item">
-                        <a href="vendors.php" class="nav-link active">
+                         <!-- Vendors -->
+                         <li class="nav-item">
+                         <a href="vendors.php" class="nav-link active">
                             <i class="nav-icon 	fas fa-chart-pie"></i>
                             <p>
                             Vendors
@@ -214,7 +151,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Product Tugas 14</h1>
+                            <h1>Form Tambah Data</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -225,62 +162,51 @@
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-secondary">
-                                <div class="card-header">
-                                    <h4 class="card-title">Produk Loop</h4>
-                                </div>
-                                <!-- product -->
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow1 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '. $value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
-
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow2 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '.$value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
-                                <!-- akhir Product -->
+<section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Tambah Data</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+                    <form action="proses-tambah-vendors.php" method="post">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="code">Code:</label>
+                                <input type="text" id="code" name="code" class="form-control" required>
                             </div>
-                        </div>
-                    </div>
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone_number">Phone Number:</label>
+                                <input type="number" id="phone_number" name="phone_number" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="text" id="email" name="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address:</label>
+                                <input type="text" id="address" name="address" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Tambah Data</button>
+                        </form>
+               <!-- /.card -->
+            </div>
+          <!--/.col (right) -->
         </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>

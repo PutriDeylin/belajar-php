@@ -125,6 +125,26 @@
               </a>
             </li>
             <!-- /.CRUD Product -->
+            <!-- Pelanggan -->
+            <li class="nav-item">
+              <a href="pages/pelanggan.php" class="nav-link active">
+                <i class="nav-icon 	fas fa-users"></i>
+                <p>
+                  Customers
+                </p>
+              </a>
+            </li>
+            <!-- /.Pelanggan -->
+            <!-- Vendors -->
+            <li class="nav-item">
+              <a href="pages/vendors.php" class="nav-link active">
+                <i class="nav-icon 	fas fa-chart-pie"></i>
+                <p>
+                  Vendors
+                </p>
+              </a>
+            </li>
+            <!-- /.Vendors -->
              <!-- Logout -->
              <li class="nav-item">
               <a href="pages/login-redirect.php" class="nav-link active">
@@ -160,8 +180,83 @@
       <!-- /.content-header -->
 
       <!-- Main content -->
+      <?php
+      $conn = mysqli_connect("localhost", "root", "", "pos_shop");
+
+          // Koneksi 
+          if (!$conn) {
+              die("Connection failed: " . mysqli_connect_error());
+          }
+
+          // Query select data
+          $query = "SELECT * FROM dashboard_data";
+          $result = mysqli_query($conn, $query);
+
+          $product_count = $customer_count = $vendor_count = 0; 
+
+          if ($result) {
+              $data = mysqli_fetch_assoc($result);
+              $product_count = $data['product_count'];
+              $customer_count = $data['customer_count'];
+              $vendor_count = $data['vendor_count'];
+          } else {
+            echo "Data tidak ditemukan.";
+          }
+
+          // Tutup koneksi
+          mysqli_close($conn);
+          ?>
+          
       <section class="content">
-        <div class="container-fluid">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-lg-4 col-9">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3><?php echo $product_count; ?></h3>
+
+                <p>Products</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-9">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3><?php echo $customer_count; ?></h3>
+
+                <p>Customers</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-4 col-9">
+            <!-- small box -->
+            <div class="small-box bg-danger">
+              <div class="inner">
+                <h3><?php echo $vendor_count; ?></h3>
+
+                <p>Vendors</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+              </div>
+              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+
           <div class="bodymain">
             <img src="dist/img/bg.jpg" class="img-fluid" alt="bg">
           </div>

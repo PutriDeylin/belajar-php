@@ -142,6 +142,26 @@ if (isset($_GET['id'])) {
                         </a>
                         </li>
                         <!-- /.CRUD Product -->
+                        <!-- Pelanggan -->
+                        <li class="nav-item">
+                        <a href="pelanggan.php" class="nav-link active">
+                            <i class="nav-icon 	fas fa-users"></i>
+                            <p>
+                            Customers
+                            </p>
+                        </a>
+                        </li>
+                        <!-- /.Pelanggan -->
+                        <!-- Vendors -->
+                        <li class="nav-item">
+                         <a href="vendors.php" class="nav-link active">
+                            <i class="nav-icon 	fas fa-chart-pie"></i>
+                            <p>
+                            Vendors
+                            </p>
+                        </a>
+                        </li>
+                        <!-- /.Vendors -->
                         <!-- Logout -->
                         <li class="nav-item">
                             <a href="login-redirect.php" class="nav-link active">
@@ -162,7 +182,7 @@ if (isset($_GET['id'])) {
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Product Tugas 17</h1>
+                        <h1>Form Edit Data</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -193,8 +213,12 @@ if (isset($_GET['id'])) {
                                     <input type="text" id="product_name" name="product_name" class="form-control" value="<?php echo $product_name; ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="category_id">Category ID:</label>
-                                    <input type="text" id="category_id" name="category_id" class="form-control" value="<?php echo $category_id; ?>" required>
+                                    <label for="category_id">Category:</label>
+                                    <select id="category_id" name="category_id" class="form-control" required>
+                                        <option value="1" <?php if ($category_id == 1) echo 'selected'; ?>>Sports</option>
+                                        <option value="2" <?php if ($category_id == 2) echo 'selected'; ?>>Daily</option>
+                                        <option value="3" <?php if ($category_id == 3) echo 'selected'; ?>>Accessories</option>
+                                </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="product_code">Product Code:</label>

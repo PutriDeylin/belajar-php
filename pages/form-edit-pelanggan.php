@@ -1,66 +1,33 @@
 <?php
-    // Variabel Data Produk Loop
-    $produkrow1 = [
-        [
-            'gambar' => '../dist/img/1.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp200.000'
-        ],
+// Koneksi ke database
+include 'koneksi-posshop.php';
+if (isset($_GET['id'])) {
+    $customers_id = $_GET['id'];
 
-        [
-            'gambar' => '../dist/img/2.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp250.000'
-        ],
-        [
-            'gambar' => '../dist/img/3.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
+    if ($conn->connect_error) {
+        die("Koneksi gagal: " . $conn->connect_error);
+    }
 
-        [
-            'gambar' => '../dist/img/4.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-        
-    ];
+    // Query untuk mengambil data produk berdasarkan 'id'
+    $sql = "SELECT id, code, name, phone_number, email, address FROM customers WHERE id = $customers_id";
+    $result = $conn->query($sql);
 
-    $produkrow2 = [
-        [
-            'gambar' => '../dist/img/5.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp500.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/6.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp150.000'
-        ],
-        [
-            'gambar' => '../dist/img/7.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp170.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/8.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp180.000'
-        ],
-        
-    ];
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        $customers_id = $row['id'];
+        $code = $row['code'];
+        $name = $row['name'];
+        $phone_number = $row['phone_number'];
+        $email = $row['email'];
+        $address = $row['address'];
+    } else {
+        echo "Produk tidak ditemukan.";
+    }
+    $conn->close();
+} else {
+    echo "ID Produk tidak ditemukan.";
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -186,7 +153,7 @@
                         <!-- /.Pelanggan -->
                         <!-- Vendors -->
                         <li class="nav-item">
-                        <a href="vendors.php" class="nav-link active">
+                         <a href="vendors.php" class="nav-link active">
                             <i class="nav-icon 	fas fa-chart-pie"></i>
                             <p>
                             Vendors
@@ -207,82 +174,71 @@
                         <!-- /.sidebar-menu -->
             </div>
         </aside>
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1>Product Tugas 14</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Product</li>
-                            </ol>
-                        </div>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Form Edit Data</h1>
                     </div>
-                </div><!-- /.container-fluid -->
-            </section>
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-secondary">
-                                <div class="card-header">
-                                    <h4 class="card-title">Produk Loop</h4>
-                                </div>
-                                <!-- product -->
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow1 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '. $value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
-
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow2 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '.$value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
-                                <!-- akhir Product -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Product</li>
+                        </ol>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-6">
+                        <!-- general form elements -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Edit Data</h3>
                             </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <div class="card-body">
+                            <form action="proses-edit-pelanggan.php" method="post">
+                            <input type="hidden" id="customers_id" name="customers_id" class="form-control" value="<?php echo $customers_id; ?>">
+                                <div class="form-group">
+                                    <label for="code">Code:</label>
+                                    <input type="text" id="code" name="code" class="form-control" value="<?php echo $code; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" class="form-control" value="<?php echo $name; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Phone Number:</label>
+                                    <input type="text" id="phone_number" name="phone_number" class="form-control" value="<?php echo $phone_number; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="text" id="email" name="email" class="form-control" value="<?php echo $email; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address:</label>
+                                    <input type="text" id="address" name="address" class="form-control" value="<?php echo $address; ?>" required>
+                                </div>
+                                    <button type="submit" class="btn btn-primary">Update Data</button>
+                                </div>
+                            </form>
                         </div>
+                        <!-- /.card -->
                     </div>
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
+                </div>
+            </div>
+        </section>
+    </div>
+     <!-- /.content-wrapper -->
+     <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">

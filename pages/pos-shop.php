@@ -111,6 +111,26 @@
                         </a>
                         </li>
                         <!-- /.CRUD Product -->
+                        <!-- Pelanggan -->
+                        <li class="nav-item">
+                        <a href="pelanggan.php" class="nav-link active">
+                            <i class="nav-icon 	fas fa-users"></i>
+                            <p>
+                            Customers
+                            </p>
+                        </a>
+                        </li>
+                        <!-- /.Pelanggan -->
+                        <!-- Vendors -->
+                        <li class="nav-item">
+                        <a href="vendors.php" class="nav-link active">
+                            <i class="nav-icon 	fas fa-chart-pie"></i>
+                            <p>
+                            Vendors
+                            </p>
+                        </a>
+                        </li>
+                        <!-- /.Vendors -->
                         <!-- Logout -->
                         <li class="nav-item">
                             <a href="login-redirect.php" class="nav-link active">
@@ -186,7 +206,7 @@
                       <tr>
                         <th>ID</th>
                         <th>Product Name</th>
-                        <th>Category ID</th>
+                        <th>Category</th>
                         <th>Product Code</th>
                         <th>Is Active</th>
                         <th>Created At</th>
@@ -206,6 +226,13 @@
                     <?php
                        // Koneksi ke database
                         include 'koneksi-posshop.php';
+
+                       // Array category
+                       $categories = array(
+                            1=> 'Sports',
+                            2=> 'Daily',
+                            3=> 'Accessories'
+                       );
 
                         // Periksa koneksi
                         if ($conn->connect_error) {
@@ -244,7 +271,7 @@
                                 echo "<tr>";
                                 echo "<td>" . $i . "</td>";
                                 echo "<td>" . $row["product_name"] . "</td>";
-                                echo "<td>" . $row["category_id"] . "</td>";
+                                echo "<td>" . $categories[$row["category_id"]] . "</td>";
                                 echo "<td>" . $row["product_code"] . "</td>";
                                 echo "<td>" . $row["is_active"] . "</td>";
                                 echo "<td>" . $row["created_at"] . "</td>";

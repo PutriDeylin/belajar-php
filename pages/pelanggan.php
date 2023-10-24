@@ -1,66 +1,3 @@
-<?php
-    // Variabel Data Produk Loop
-    $produkrow1 = [
-        [
-            'gambar' => '../dist/img/1.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp200.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/2.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp250.000'
-        ],
-        [
-            'gambar' => '../dist/img/3.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/4.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp300.000'
-        ],
-        
-    ];
-
-    $produkrow2 = [
-        [
-            'gambar' => '../dist/img/5.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp500.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/6.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp150.000'
-        ],
-        [
-            'gambar' => '../dist/img/7.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp170.000'
-        ],
-
-        [
-            'gambar' => '../dist/img/8.jpg',
-            'nama'   => 'Sepatu Kets Wanita Casual',
-            'ukuran' => '36, 37, 38, 39, 40',
-            'harga'  => 'Rp180.000'
-        ],
-        
-    ];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -214,7 +151,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Product Tugas 14</h1>
+                            <h1>Daftar Nama Customers</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -225,62 +162,176 @@
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
-
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-secondary">
-                                <div class="card-header">
-                                    <h4 class="card-title">Produk Loop</h4>
-                                </div>
-                                <!-- product -->
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow1 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '. $value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
-
-                                <div class="card-body">
-                                    <div class="card-deck">
-                                        <?php
-                                            // Loop untuk menampilkan produk
-                                            foreach ($produkrow2 as $value) {
-                                                echo '<div class="card">';
-                                                echo '<img src="'.$value['gambar'].'"class="card-img-top" alt="...">';
-                                                echo '<div class="card-body">';
-                                                echo '<h5 class="card-title">'.$value['nama'].'</h5>';
-                                                echo '<p class="card-text">Ukuran '.$value['ukuran'].'</p>';
-                                                echo '<p>'.$value['harga'].'</p>';
-                                                echo '<a href="#" class="btn btn-secondary">Beli</a>';
-                                                echo '</div>';
-                                                echo '</div>';
-                                            }
-                                            ?>
-                                            </div>
-                                        </div>
-                                <!-- akhir Product -->
-                            </div>
-                        </div>
+          <div class="container-fluid">
+          <div class="row">
+            <!-- create/tambah data -->
+            <div class="col-lg-2 col-3">
+              <!-- small box -->
+              <div class="">
+                <div class="inner">
+                  <!-- <h4>Tambah Data</h4> -->
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="form-tambah-pelanggan.php" class="btn btn-block btn-primary">Tambah Data  <i class="nav-icon fas fa-plus mr-2"></i></a>
+                <br>
+              </div>
+            </div>
+            <!-- akhir tambah data -->
+             <!-- Search Data -->
+            <div class="card-tools">
+              <form method="post" action="">
+                  <div class="input-group input-group-mb">
+                    <input type="text" name="search" id="search-input" class="form-control float-right" placeholder="Search Product">
+                    <div class="input-group-append">
+                      <button type="submit" name="search_button" class="btn btn-default">
+                        <i class="fas fa-search"></i>
+                      </button>
                     </div>
-                </div><!-- /.container-fluid -->
-            </section>
-            <!-- /.content -->
+                  </div>
+                  </div>
+              <!-- /.Akhir Search Data -->
+            <div class="col-12">
+              <div class="card">
+                <!-- <div class="card-header">
+                  <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                </div> -->
+                <!-- /.card-header -->
+                <div class="card-body">
+                  <table id="example2" class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Id</th>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
+                        <th>Created By</th>
+                        <th>Updated By</th>
+                        <th>Is Active</th>
+                        <th>Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                       // Koneksi ke database
+                        include 'koneksi-posshop.php';
+
+                       // Array category
+                       $categories = array(
+                            1=> 'Sports',
+                            2=> 'Daily',
+                            3=> 'Accessories'
+                       );
+
+                        // Periksa koneksi
+                        if ($conn->connect_error) {
+                            die("Koneksi gagal: " . $conn->connect_error);
+                        }
+                        
+                        $per_page = 10;
+                        $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
+                        $start_from = ($page - 1) * $per_page;
+                        if ($page == 1) {
+                          $start_from = 0;
+                        } else if ($page == 2) {
+                          $start_from = 10;
+                        }
+                        // Search
+                        if (isset($_POST['search_button'])) {
+                          $search = $_POST['search'];
+                
+                        // Query untuk mengambil data
+                        $sql = "SELECT id, code, name, phone_number, email, address, created_at, updated_at, created_by, updated_by, is_active
+                        FROM customers
+                        WHERE name LIKE '%$search%' OR code LIKE '%$search%' OR address LIKE '%$search%'
+                        LIMIT $per_page OFFSET $start_from";
+                        } else {
+                        $sql = "SELECT id, code, name, phone_number, email, address, created_at, updated_at, created_by, updated_by, is_active
+                        FROM customers
+                        LIMIT $per_page OFFSET $start_from";
+                        }
+
+                        $result = $conn->query($sql);
+                        
+                        // Menampilkan data dalam HTML
+                        $i = 1 + $start_from;
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<tr>";
+                                echo "<td>" . $i . "</td>";
+                                echo "<td>" . $row["code"] . "</td>";
+                                echo "<td>" . $row["name"] . "</td>";
+                                echo "<td>" . $row["phone_number"] . "</td>";
+                                echo "<td>" . $row["email"] . "</td>";
+                                echo "<td>" . $row["address"] . "</td>";
+                                echo "<td>" . $row["created_at"] . "</td>";
+                                echo "<td>" . $row["updated_at"] . "</td>";
+                                echo "<td>" . $row["created_by"] . "</td>";
+                                echo "<td>" . $row["updated_by"] . "</td>";
+                                echo "<td>" . $row["is_active"] . "</td>";
+                                echo '<td>
+                                        <a href="form-edit-pelanggan.php?id=' . $row["id"] . '" class="btn btn-warning">Edit</a>
+                                        <a href="proses-delete-pelanggan.php?id=' . $row["id"] . '" class="btn btn-danger">Hapus</a>
+                                     </td>';
+                                echo "</tr>";
+                                $i++;
+                            }
+                        } else {
+                            echo "Data tidak ditemukan.";
+                        }
+                        // Tutup koneksi database
+                        $conn->close();
+                        ?>
+                    </tbody>
+                  </table>
+                  <?php
+                    // Pagination
+                    include 'koneksi-posshop.php';
+
+                    $sql = "SELECT COUNT(id) FROM customers";
+                    $result = $conn->query($sql);
+                    $row = $result->fetch_row();
+                    $total_records = $row[0];
+                    $total_pages = ceil($total_records / $per_page);
+
+                    echo "<ul class='pagination'>";
+                    if ($page > 1) {
+                        echo "<li class='page-item'><a class='page-link' href='pelanggan.php?page=" . ($page - 1) . "'>Previous</a></li>";
+                    }
+
+                    for ($i = max(1, $page - 2); $i <= min($page + 2, $total_pages); $i++) {
+                        echo "<li class='page-item ";
+                        if ($i == $page) {
+                            echo "active";
+                        }
+                        echo "'><a class='page-link' href='pelanggan.php?page=" . $i . "'>" . $i . "</a></li>";
+                    }
+
+                    if ($page < $total_pages) {
+                        echo "<li class='page-item'><a class='page-link' href='pelanggan.php?page=" . ($page + 1) . "'>Next</a></li>";
+                    }
+                    echo "</ul>";
+                    ?>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
         </div>
+        <!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+    </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
