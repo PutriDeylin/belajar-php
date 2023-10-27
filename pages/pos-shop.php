@@ -287,9 +287,9 @@
                                 // Uraikan JSON gambar menjadi array
                                 $imagesArray = json_decode($row["image"], true);
 
-                                // Memeriksa apakah ada gambar dalam array
+                                // Periksa apakah ada gambar dalam array
                                 if (!empty($imagesArray)) {
-                                    // Loop through the images and display each one
+                                    // Loop 
                                     foreach ($imagesArray as $image) {
                                         echo '<div style="margin-bottom: 10px;">';
                                         echo '<img src="../dist/upload/' . $image . '" alt="image" style="width: 100px; height: 100px;">';

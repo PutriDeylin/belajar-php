@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Inisialisasi array untuk menyimpan nama file gambar baru
     $new_images = [];
 
-    // Loop melalui gambar yang diunggah
+    // Loop dari gambar yang diunggah
     if (!empty($_FILES['image']['name'][0])) {
         $total_images = count($_FILES['image']['name']);
         for ($i = 0; $i < $total_images; $i++) {

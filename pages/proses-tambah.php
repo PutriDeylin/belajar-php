@@ -7,7 +7,6 @@
         die("Koneksi gagal: " . $conn->connect_error);
     }
 
-    // Mengekstrak data dari form
     $product_name = $_POST['product_name'];
     $category_id = $_POST['category_id'];
     $product_code = $_POST['product_code'];
