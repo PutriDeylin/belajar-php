@@ -174,7 +174,7 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-                    <form action="proses-tambah.php" method="post">
+                    <form action="proses-tambah.php" method="post" enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group">
                             <label for="product_name">Product Name:</label>
@@ -204,6 +204,10 @@
                             <div class="form-group">
                                 <label for="stock">Stock:</label>
                                 <input type="text" id="stock" name="stock" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Upload Image:</label>
+                                <input type="file" id="image" name="image[]" class="form-control" accept=".jpg, .jpeg, .png, .gif" multiple required>
                             </div>
                             <button type="submit" class="btn btn-primary">Tambah Data</button>
                         </form>

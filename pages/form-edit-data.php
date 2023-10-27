@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
     }
 
     // Query untuk mengambil data produk berdasarkan 'id'
-    $sql = "SELECT id, product_name, category_id, product_code, description, price, stock FROM products WHERE id = $product_id";
+    $sql = "SELECT id, product_name, category_id, product_code, description, price, stock, image FROM products WHERE id = $product_id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -21,6 +21,8 @@ if (isset($_GET['id'])) {
         $description = $row['description'];
         $price = $row['price'];
         $stock = $row['stock'];
+        $image = $row['image'];
+
     } else {
         echo "Produk tidak ditemukan.";
     }
@@ -206,7 +208,7 @@ if (isset($_GET['id'])) {
                             <!-- /.card-header -->
                             <!-- form start -->
                             <div class="card-body">
-                            <form action="proses-edit.php" method="post">
+                            <form action="proses-edit.php" method="post" enctype="multipart/form-data">
                             <input type="hidden" id="product_id" name="product_id" class="form-control" value="<?php echo $product_id; ?>">
                                 <div class="form-group">
                                     <label for="product_name">Product Name:</label>
@@ -235,6 +237,20 @@ if (isset($_GET['id'])) {
                                 <div class="form-group">
                                     <label for="stock">Stock:</label>
                                     <input type="text" id="stock" name="stock" class="form-control" value="<?php echo $stock; ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Update Image:</label>
+                                    <input type="file" id="image" name="image[]" class="form-control" accept=".jpg, .jpeg, .png, .gif" multiple required><br>
+                                    <div style="display: flex;">
+                                    <?php
+                                    $imagesArray = json_decode($image, true);
+                                    if (!empty($imagesArray)) {
+                                        foreach ($imagesArray as $img) {
+                                            echo '<img src="../dist/upload/' . $img . '" alt="image" width="100" height="100" style="margin-right: 10px;"><br>';
+                                        }
+                                    }
+                                    ?>
+                                    </div>
                                 </div>
                                     <button type="submit" class="btn btn-primary">Update Data</button>
                                 </div>

@@ -36,7 +36,7 @@
     <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
-
+    
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
@@ -44,10 +44,22 @@
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto"></ul>
+
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+      <!-- Tanggal Waktu -->
+        <a id="waktu" class="nav-link" data-widget="navbar" href="#" role="button"><?= $hasil_konversi; ?></a>
+        <?php
+          function konversiTanggalWaktu() {
+              date_default_timezone_set('Asia/Jakarta'); 
+              $hasil = date('l, j F Y H:i:s');
+              return $hasil;
+          }
+          $hasil_konversi = konversiTanggalWaktu();
+      ?>
+      </p>
     </nav>
-    <!-- /.navbar -->
+    <!-- /.Tanggal Waktu -->
 
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -317,6 +329,29 @@
   <script src="dist/js/adminlte.js"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="dist/js/pages/dashboard.js"></script>
+  <!-- Script Tanggal Waktu -->
+  <script type="text/javascript">
+            function perbaruiWaktu() {
+                const waktuElemen = document.getElementById('waktu');
+                const sekarang = new Date();
+                const hari = sekarang.toLocaleString('id-ID', { weekday: 'long' });
+                const tanggal = sekarang.getDate();
+                const bulan = sekarang.toLocaleString('id-ID', { month: 'long' });
+                const tahun = sekarang.getFullYear();
+                const jam = sekarang.getHours();
+                const menit = sekarang.getMinutes();
+                const detik = sekarang.getSeconds();
+                
+                const hasil = `${hari}, ${tanggal} ${bulan} ${tahun} ${jam}:${menit}:${detik}`;
+                waktuElemen.textContent = hasil;
+            }
+
+            // Perbarui waktu setiap detik
+            setInterval(perbaruiWaktu, 1000);
+
+            // Pemanggilan pertama
+            perbaruiWaktu();
+        </script>
 </body>
 
 </html>

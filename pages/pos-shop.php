@@ -283,7 +283,23 @@
                                 echo "<td>" . $row["unit"] . "</td>";
                                 echo "<td>" . $row["discount_amount"] . "</td>";
                                 echo "<td>" . $row["stock"] . "</td>";
-                                echo "<td>" . $row["image"] . "</td>";
+                                echo "<td>";
+                                // Uraikan JSON gambar menjadi array
+                                $imagesArray = json_decode($row["image"], true);
+
+                                // Memeriksa apakah ada gambar dalam array
+                                if (!empty($imagesArray)) {
+                                    // Loop through the images and display each one
+                                    foreach ($imagesArray as $image) {
+                                        echo '<div style="margin-bottom: 10px;">';
+                                        echo '<img src="../dist/upload/' . $image . '" alt="image" style="width: 100px; height: 100px;">';
+                                        echo '</div>';
+                                    }
+                                } else {
+                                    // Tampilkan pesan jika tidak ada gambar
+                                    echo 'Tidak ada gambar';
+                                }
+                                echo "</td>";
                                 echo '<td>
                                         <a href="form-edit-data.php?id=' . $row["id"] . '" class="btn btn-warning">Edit</a>
                                         <a href="proses-delete.php?id=' . $row["id"] . '" class="btn btn-danger">Hapus</a>
