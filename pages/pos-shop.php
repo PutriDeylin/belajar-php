@@ -133,7 +133,7 @@
                         <!-- /.Vendors -->
                         <!-- Logout -->
                         <li class="nav-item">
-                            <a href="login-redirect.php" class="nav-link active">
+                            <a href="logout.php" class="nav-link active">
                                 <i class="nav-icon 	fas fa-sign-out-alt"></i>
                                 <p>
                                     Logout
