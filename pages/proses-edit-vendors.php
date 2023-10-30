@@ -11,22 +11,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $address = $_POST['address'];
 
     // Periksa koneksi ke database
-    if ($conn->connect_error) {
-        die("Koneksi database gagal: " . $conn->connect_error);
+    if ($connection->connect_error) {
+        die("Koneksi database gagal: " . $connection->connect_error);
     }
 
     // Query untuk mengupdate data di database berdasarkan Id
     $sql = "UPDATE vendors SET code='$code', name='$name', phone_number='$phone_number', email='$email', address='$address' WHERE id=$vendors_id";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($connection->query($sql) === TRUE) {
         header("Location: vendors.php");
         exit;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $connection->error;
     }
 
     // Tutup koneksi database
-    $conn->close();
+    $connection->close();
 } else {
     echo "Metode pengiriman data tidak valid.";
 }

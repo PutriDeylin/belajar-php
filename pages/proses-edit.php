@@ -1,8 +1,8 @@
 <?php
 include 'koneksi-posshop.php';
 
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
+if ($connection->connect_error) {
+    die("Koneksi gagal: " . $connection->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -41,14 +41,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql = "UPDATE products SET product_name='$product_name', category_id='$category_id', product_code='$product_code', description='$description', price='$price', stock='$stock' WHERE id='$product_id'";
     }
 
-    if ($conn->query($sql) === true) {
+    if ($connection->query($sql) === true) {
         header("Location: pos-shop.php");
         exit;
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $sql . "<br>" . $connection->error;
     }
 }
 
-$conn->close();
+$connection->close();
 
 ?>

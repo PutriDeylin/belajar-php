@@ -73,7 +73,7 @@
                         data-accordion="false">
                          <!-- Dashboard -->
                         <li class="nav-item">
-                            <a href="../dashboard.php" class="nav-link active">
+                            <a href="dashboard.php" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -231,8 +231,8 @@
                        );
 
                         // Periksa koneksi
-                        if ($conn->connect_error) {
-                            die("Koneksi gagal: " . $conn->connect_error);
+                        if ($connection->connect_error) {
+                            die("Koneksi gagal: " . $connection->connect_error);
                         }
                         
                         $per_page = 10;
@@ -258,7 +258,7 @@
                         LIMIT $per_page OFFSET $start_from";
                         }
 
-                        $result = $conn->query($sql);
+                        $result = $connection->query($sql);
                         
                         // Menampilkan data dalam HTML
                         $i = 1 + $start_from;
@@ -287,7 +287,7 @@
                             echo "Data tidak ditemukan.";
                         }
                         // Tutup koneksi database
-                        $conn->close();
+                        $connection->close();
                         ?>
                     </tbody>
                   </table>
@@ -296,7 +296,7 @@
                     include 'koneksi-posshop.php';
 
                     $sql = "SELECT COUNT(id) FROM customers";
-                    $result = $conn->query($sql);
+                    $result = $connection->query($sql);
                     $row = $result->fetch_row();
                     $total_records = $row[0];
                     $total_pages = ceil($total_records / $per_page);

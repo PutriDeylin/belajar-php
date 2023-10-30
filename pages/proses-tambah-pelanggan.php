@@ -3,8 +3,8 @@
 include 'koneksi-posshop.php';
 
 // Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
+if ($connection->connect_error) {
+    die("Koneksi gagal: " . $connection->connect_error);
 }
 
 // Mengekstrak data dari form
@@ -17,13 +17,13 @@ $address = $_POST['address'];
 // SQL untuk menyimpan data
 $sql = "INSERT INTO customers (code, name, phone_number, email, address) VALUES ('$code', '$name', '$phone_number', '$email', '$address')";
 
-if ($conn->query($sql) === true) {
+if ($connection->query($sql) === true) {
     header("Location: pelanggan.php");
     exit;
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $connection->error;
 }
 
 // Tutup koneksi database
-$conn->close();
+$connection->close();
 ?>

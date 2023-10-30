@@ -19,3 +19,7 @@
 .cek {
     background-color: black;
 }
+
+#eyeIcon {
+    cursor: pointer; 
+  }

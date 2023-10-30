@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    // jika user belum login, kembali ke halaman login
+    header("Location: ../index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,23 +19,23 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&dispFlay=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="../https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="../plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -34,7 +43,7 @@
 
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
-      <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+      <img class="animation__shake" src="../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
     </div>
     
     <!-- Navbar -->
@@ -65,7 +74,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="#" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE</span>
       </a>
@@ -75,7 +84,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="dist/img/avatar6.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../dist/img/avatar6.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block">Putri Deylin</a>
@@ -109,7 +118,7 @@
             <!-- /.Dashboard -->
             <!-- Product Variabel -->
             <li class="nav-item">
-              <a href="pages/produk-variabel.php" class="nav-link active">
+              <a href="produk-variabel.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-shopping-cart"></i>
                 <p>
                   Product Variabel
@@ -119,7 +128,7 @@
             <!-- /.Product Variabel -->
              <!-- Product Loop -->
              <li class="nav-item">
-              <a href="pages/produk-loop.php" class="nav-link active">
+              <a href="produk-loop.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-shopping-cart"></i>
                 <p>
                   Product Loop
@@ -129,7 +138,7 @@
             <!-- /.Product Loop -->
             <!-- CRUD Product -->
             <li class="nav-item">
-              <a href="pages/pos-shop.php" class="nav-link active">
+              <a href="pos-shop.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-shopping-cart"></i>
                 <p>
                   CRUD Products
@@ -139,7 +148,7 @@
             <!-- /.CRUD Product -->
             <!-- Pelanggan -->
             <li class="nav-item">
-              <a href="pages/pelanggan.php" class="nav-link active">
+              <a href="pelanggan.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-users"></i>
                 <p>
                   Customers
@@ -149,7 +158,7 @@
             <!-- /.Pelanggan -->
             <!-- Vendors -->
             <li class="nav-item">
-              <a href="pages/vendors.php" class="nav-link active">
+              <a href="vendors.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-chart-pie"></i>
                 <p>
                   Vendors
@@ -159,7 +168,7 @@
             <!-- /.Vendors -->
              <!-- Logout -->
              <li class="nav-item">
-              <a href="pages/login-redirect.php" class="nav-link active">
+              <a href="logout.php" class="nav-link active">
                 <i class="nav-icon 	fas fa-sign-out-alt"></i>
                 <p>
                   Logout
@@ -270,7 +279,7 @@
           <!-- ./col -->
 
           <div class="bodymain">
-            <img src="dist/img/bg.jpg" class="img-fluid" alt="bg">
+            <img src="../dist/img/bg.jpg" class="img-fluid" alt="bg">
           </div>
       </section>
       <!-- right col -->
@@ -298,37 +307,37 @@
   <!-- ./wrapper -->
 
   <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="../plugins/jquery/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
-  <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../plugins/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
     $.widget.bridge('uibutton', $.ui.button)
   </script>
   <!-- Bootstrap 4 -->
-  <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- ChartJS -->
-  <script src="plugins/chart.js/Chart.min.js"></script>
+  <script src="../plugins/chart.js/Chart.min.js"></script>
   <!-- Sparkline -->
-  <script src="plugins/sparklines/sparkline.js"></script>
+  <script src="../plugins/sparklines/sparkline.js"></script>
   <!-- JQVMap -->
-  <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-  <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <script src="../plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="../plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
   <!-- jQuery Knob Chart -->
-  <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+  <script src="../plugins/jquery-knob/jquery.knob.min.js"></script>
   <!-- daterangepicker -->
-  <script src="plugins/moment/moment.min.js"></script>
-  <script src="plugins/daterangepicker/daterangepicker.js"></script>
+  <script src="../plugins/moment/moment.min.js"></script>
+  <script src="../plugins/daterangepicker/daterangepicker.js"></script>
   <!-- Tempusdominus Bootstrap 4 -->
-  <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
   <!-- Summernote -->
-  <script src="plugins/summernote/summernote-bs4.min.js"></script>
+  <script src="../plugins/summernote/summernote-bs4.min.js"></script>
   <!-- overlayScrollbars -->
-  <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <script src="../plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="dist/js/adminlte.js"></script>
+  <script src="../dist/js/adminlte.js"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="dist/js/pages/dashboard.js"></script>
+  <script src="../dist/js/pages/dashboard.js"></script>
   <!-- Script Tanggal Waktu -->
   <script type="text/javascript">
             function perbaruiWaktu() {

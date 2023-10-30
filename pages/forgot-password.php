@@ -44,7 +44,7 @@
       </form>
 
       <p class="mt-3 mb-1">
-        <a href="login-redirect.php">Login</a>
+        <a href="../index.php">Login</a>
       </p>
       <p class="mb-0">
         <a href="register.php" class="text-center">Register a new membership</a>

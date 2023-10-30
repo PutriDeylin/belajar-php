@@ -10,13 +10,13 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="../dist/css/loginredirect.css">
+    <link rel="stylesheet" href="dist/css/loginredirect.css">
 </head>
 
 <body class="hold-transition login-page">
@@ -29,7 +29,7 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in with your username and password</p>
 
-                <form method="post" action="proses-login-redirect.php">
+                <form method="post" action="pages/proses-login-redirect.php">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Username" name="username">
                         <div class="input-group-append">
@@ -39,11 +39,11 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password" name="password">
+                        <input type="password" class="form-control" placeholder="Password" name="password" id="passwordField">
                         <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-lock"></span>
-                            </div>
+                            <span class="input-group-text" id="showPasswordIcon">
+                                <i class="fa fa-eye" id="eyeIcon"></i> 
+                            </span>
                         </div>
                     </div>
                     <div class="row">
@@ -64,7 +64,7 @@
                 </form><br>
                 <div class="text-center mx-auto">
                 <?php
-                if (isset($_GET['error']) && $_GET['error'] == 1) {
+                if (isset($_GET['login_failed']) && $_GET['login_failed'] == 1) {
                     echo '<p style="color: red;">Incorrect username or password!</p>';
                 }
                 ?>
@@ -84,10 +84,10 @@
                 <!-- /.social-auth-links -->
 
                 <p class="mb-1">
-                    <a href="forgot-password.php">I forgot my password</a>
+                    <a href="pages/forgot-password.php">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="register.php" class="text-center">Register a new membership</a>
+                    <a href="pages/register.php" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
@@ -96,11 +96,14 @@
     <!-- /.login-box -->
 
     <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../..../dist/js/adminlte.min.js"></script>
+    <script src="dist/js/adminlte.min.js"></script>
+    <!-- Password -->
+    <script src="dist/js/pass.js"></script>
+
 </body>
 
 </html>

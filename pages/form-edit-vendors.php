@@ -4,13 +4,13 @@ include 'koneksi-posshop.php';
 if (isset($_GET['id'])) {
     $vendors_id = $_GET['id'];
 
-    if ($conn->connect_error) {
-        die("Koneksi gagal: " . $conn->connect_error);
+    if ($connection->connect_error) {
+        die("Koneksi gagal: " . $connection->connect_error);
     }
 
     // Query untuk mengambil data produk berdasarkan 'id'
     $sql = "SELECT id, code, name, phone_number, email, address FROM vendors WHERE id = $vendors_id";
-    $result = $conn->query($sql);
+    $result = $connection->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -23,7 +23,7 @@ if (isset($_GET['id'])) {
     } else {
         echo "Produk tidak ditemukan.";
     }
-    $conn->close();
+    $connection->close();
 } else {
     echo "ID Produk tidak ditemukan.";
 }

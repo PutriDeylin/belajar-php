@@ -3,8 +3,8 @@
     include 'koneksi-posshop.php';
 
     // Periksa koneksi
-    if ($conn->connect_error) {
-        die("Koneksi gagal: " . $conn->connect_error);
+    if ($connection->connect_error) {
+        die("Koneksi gagal: " . $connection->connect_error);
     }
 
     $product_name = $_POST['product_name'];
@@ -34,7 +34,7 @@
     // SQL untuk menyimpan data, termasuk JSON gambar
     $sql = "INSERT INTO products (product_name, category_id, product_code, description, price, stock, image) VALUES ('$product_name', '$category_id', '$product_code', '$description', '$price', '$stock', '$imagesJson')";
 
-    if ($conn->query($sql) === true) {
+    if ($connection->query($sql) === true) {
         header("Location: pos-shop.php");
         exit;
     } else {
@@ -42,5 +42,5 @@
     }
 
     // Tutup koneksi database
-    $conn->close();
+    $connection->close();
 ?>
