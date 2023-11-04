@@ -1,4 +1,34 @@
 <?php
+session_start();
+include '../oop/Database.php';
+include '../oop/User.php';
+
+$database = new Database();
+$connection = $database->getConnection();
+
+$user = new User($connection);
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone_number = $_POST['phone_number'];
+    $password = $_POST['password'];
+    $username = $phone_number;
+    $group_id = 3; 
+
+    if ($user->register($name, $email, $username, $phone_number, $password, $group_id)) {
+        header("Location: ../index.php");
+        exit();
+    } else {
+        echo "Error while registering.";
+    }
+}
+
+// Tutup koneksi database
+$database->closeConnection();
+?>
+
+// Tanpa OOP
  session_start();
 // Koneksi ke database
 include 'koneksi-posshop.php';

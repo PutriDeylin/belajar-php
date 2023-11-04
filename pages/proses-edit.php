@@ -1,4 +1,41 @@
 <?php
+include '../oop/Database.php';
+include '../oop/Product.php';
+
+$database = new Database();
+$connection = $database->getConnection();
+
+$product = new Product($connection);
+
+// Periksa koneksi
+if ($connection->connect_error) {
+    die("Koneksi gagal: " . $connection->connect_error);
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $product_id = $_POST['product_id'];
+    $product_name = $_POST['product_name'];
+    $category_id = $_POST['category_id'];
+    $product_code = $_POST['product_code'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $stock = $_POST['stock'];
+    $new_images = $_FILES['image'];
+
+    // Panggil metode editProduct
+    if ($product->editProduct($product_id, $product_name, $category_id, $product_code, $description, $price, $stock, $new_images)) {
+        header("Location: pos-shop.php");
+        exit;
+    } else {
+        echo "Error: Data produk tidak dapat diubah.";
+    }
+}
+
+// Tutup koneksi database
+$database->closeConnection();
+?>
+
+// Tanpa OOP
 include 'koneksi-posshop.php';
 
 if ($connection->connect_error) {
@@ -51,4 +88,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $connection->close();
 
-?>
